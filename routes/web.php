@@ -17,4 +17,4 @@ Route::get('/', function () {
 });
 */
 
-Route::get('/', 'HelloController@index');
+Route::get('/{id?}', 'HelloController@index');

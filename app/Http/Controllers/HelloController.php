@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 
 class HelloController extends Controller
 {
-  function index()
+  function index(Request $request)
   {
-    $data = ['id'=>'hoge', 'pass' => 'pass'];
+    $data = ['id'=>$request->id, 'pass' => $request->id];
     return view('hello.index', $data);
   }
 }
