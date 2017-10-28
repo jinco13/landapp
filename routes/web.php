@@ -18,3 +18,5 @@ Route::get('/', function () {
 */
 
 Route::get('/{id?}', 'HelloController@index');
+
+Route::post('/{id?}', 'HelloController@post');

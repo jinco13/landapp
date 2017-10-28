@@ -5,9 +5,16 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>hello {{$id}}</title>
+        <title>hello </title>
     </head>
     <body>
-      hello, first laravel template {{$pass}}
+      hello, first laravel template
+      <h1>Blade/Index</h1>
+      <h2>{{$msg}}</h2>
+      <form method="POST" action='/'>
+        {{ csrf_field() }}
+        <input type="text" name="msg">
+        <input type="submit">
+      </form>
     </body>
 </html>
