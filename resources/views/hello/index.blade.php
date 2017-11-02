@@ -8,9 +8,13 @@
         <title>hello </title>
     </head>
     <body>
-      hello, first laravel template
-      <h1>Blade/Index</h1>
       <h2>{{$msg}}</h2>
+      @if ( $msg == 'お名前を入力してください' )
+      msg is empty
+      @else
+      msg is sent
+      @endif
+      </section>
       <form method="POST" action='/'>
         {{ csrf_field() }}
         <input type="text" name="msg">
