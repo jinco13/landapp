@@ -17,6 +17,6 @@ Route::get('/', function () {
 });
 */
 
-Route::get('/{id?}', 'HelloController@index');
+Route::get('/', 'AreaController@show');
 
-Route::post('/{id?}', 'HelloController@post');
+Route::post('/city', 'AreaController@city');
