@@ -12,8 +12,9 @@ class AreaController extends Controller
     $api = new WebAPI();
     $cities = [];
     $data = [
-      'areas' => $api->getAreas(),
       'cities' => $cities,
+      'areas' => $api->getAreas(),
+      'area' => "",
     ];
     return view('area.show', $data);
   }
