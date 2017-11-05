@@ -72,6 +72,11 @@ class WebAPI
     ]);
   }
 
+  public function getAreas()
+  {
+    return \App\Models\WebAPI::AREA;
+  }
+
   public function getAreaCode($area)
   {
     return array_flip(\App\Models\WebAPI::AREA)[$area];
