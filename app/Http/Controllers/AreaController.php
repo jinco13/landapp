@@ -23,7 +23,6 @@ class AreaController extends Controller
     $api = new WebAPI();
     $area = $request->area;
     $cities = $api->getCityCode($area);
-    var_dump($cities);
     $data= [
       'cities' => $cities,
       'areas' => $api->getAreas(),
