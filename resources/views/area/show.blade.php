@@ -33,7 +33,43 @@
             <option>選択してください</option>
           @endforelse
         </select>
+        <br/>
+        <select name="startDate">
+          @forelse ($period as $p)
+            <option value="{{ $p }}"
+            @if($startDate == $p)
+              SELECTED
+            @endif
+            >{{ $p }}</li>
+          @empty
+            <option>選択してください</option>
+          @endforelse
+        </select>
+        <select name="endDate">
+          @forelse ($period as $p)
+            <option value="{{ $p }}"
+            @if($endDate == $p)
+              SELECTED
+            @endif
+            >{{ $p }}</li>
+          @empty
+            <option>選択してください</option>
+          @endforelse
+        </select>
         <input type="submit">
       </form>
+      @if (count($list) > 0)
+        <table border="1">
+          @foreach($list as $land)
+          <tr>
+            <td>{{ $land->period }}</td>
+            <td>{{ $land->type }}</td>
+            <td>{{ $land->buildingYear }}</td>
+            <td>{{ $land->tradePrice }}</td>
+            <td>{{ $land->area }}</td>
+          </tr>
+          @endforeach
+        </table>
+      @endif
     </body>
 </html>
