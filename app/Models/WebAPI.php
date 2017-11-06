@@ -72,6 +72,20 @@ class WebAPI
     ]);
   }
 
+  public function getPeriod()
+  {
+    $period = [];
+    $maxYear = date("Y");
+    for($y = 1990; $y < $maxYear; $y++)
+    {
+      for($q = 1; $q <= 4; $q++)
+      {
+        $period[] = "$y$q";
+      }
+    }
+    return $period;
+  }
+
   public function getAreas()
   {
     return \App\Models\WebAPI::AREA;

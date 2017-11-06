@@ -15,6 +15,12 @@ class WebAPITest extends TestCase
     $this->target = new WebAPI();
   }
 
+  public function testReceivingPeriod()
+  {
+    $period = $this->target->getPeriod();
+    $this->assertEquals(count($period), 108);
+  }
+
   private function setMockHandler($mockData)
   {
     $mock = new MockHandler([ new Response(200, [], json_encode($mockData), '1.1') ]);
