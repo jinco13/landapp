@@ -11,10 +11,10 @@
       <h2>調べたい都道府県を選択して送信を押してください</h2>
       <form action="/city" method="POST">
         {{ csrf_field() }}
-        <select name="area">
+        <select name="area" onchange='this.form.submit();'>
           @forelse ($areas as $code => $pref)
             <option value="{{ $code }}"
-              @if($code == $area)
+              @if($code == $selectedArea)
                 SELECTED
               @endif
             >{{ $pref}}</li>
@@ -24,7 +24,11 @@
         </select>
         <select name="city">
           @forelse ($cities as $city)
-            <option value="{{ $city['id'] }}">{{ $city['name'] }}</li>
+            <option value="{{ $city['id'] }}"
+            @if($selectedCity == $city['id'])
+              SELECTED
+            @endif
+            >{{ $city['name'] }}</li>
           @empty
             <option>選択してください</option>
           @endforelse

@@ -14,7 +14,8 @@ class AreaController extends Controller
     $data = [
       'cities' => $cities,
       'areas' => $api->getAreas(),
-      'area' => "",
+      'selectedArea' => "",
+      'selectedCity' => "",
     ];
     return view('area.show', $data);
   }
@@ -23,11 +24,13 @@ class AreaController extends Controller
   {
     $api = new WebAPI();
     $area = $request->area;
+    $city = $request->city;
     $cities = $api->getCityCode($area);
     $data= [
       'cities' => $cities,
       'areas' => $api->getAreas(),
-      'area' => $area,
+      'selectedArea' => $area,
+      'selectedCity' => $city,
     ];
     return view('area.show', $data);
   }
