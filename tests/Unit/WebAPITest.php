@@ -22,13 +22,20 @@ class WebAPITest extends TestCase
     $this->target = new WebAPI($handler);
   }
 
-  public function testAreas(){
+  public function testNumberOfAreas()
+  {
     $areas = $this->target->getAreas();
     $this->assertEquals(count($areas), 47);
+  }
+
+  public function test1stAreaIsHokkaido()
+  {
+    $areas = $this->target->getAreas();
     $this->assertEquals("北海道", array_values($areas)[0]);
   }
 
-  public function testGetDataFromAPI(){
+  public function testGetDataFromAPI()
+  {
     $mockData = array("data" => [
       ["Type" => "宅地(土地と建物)","Region" => "住宅地","MunicipalityCode" => "13103","Prefecture" => "東京都","Municipality" => "港区","DistrictName" => "赤坂","TradePrice" => "270000000","Area" => "105","LandShape" => "ほぼ台形","Frontage" => "10.2","TotalFloorArea" => "195","BuildingYear" => "平成11年","Structure" => "ＲＣ","Use" => "住宅","Purpose" => "住宅","Direction" => "東","Classification" => "区道","Breadth" => "4.7","CityPlanning" => "第２種中高層住居専用地域","CoverageRatio" => "60","FloorAreaRatio" => "300","Period" => "平成29年第１四半期"],
       ["Type" => "中古マンション等","MunicipalityCode" => "13103","Prefecture" => "東京都","Municipality" => "港区","DistrictName" => "赤坂","TradePrice" => "92000000","FloorPlan" => "１ＬＤＫ","Area" => "50","BuildingYear" => "平成20年","Structure" => "ＲＣ","Use" => "住宅","Purpose" => "住宅","CityPlanning" => "商業地域","CoverageRatio" => "80","FloorAreaRatio" => "400","Period" => "平成29年第１四半期","Remarks" => "改装済を購入"],
