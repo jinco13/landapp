@@ -76,7 +76,7 @@ class WebAPI
   {
     $period = [];
     $maxYear = date("Y");
-    for($y = 1990; $y < $maxYear; $y++)
+    for($y = 1990; $y <= $maxYear; $y++)
     {
       for($q = 1; $q <= 4; $q++)
       {
