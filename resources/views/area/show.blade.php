@@ -19,7 +19,7 @@
               @endif
             >{{ $pref}}</li>
           @empty
-            <option>選択してください</option>
+            <option value="">選択してください</option>
           @endforelse
         </select>
         <select name="city">
@@ -30,7 +30,7 @@
             @endif
             >{{ $city['name'] }}</li>
           @empty
-            <option>選択してください</option>
+            <option value="">選択してください</option>
           @endforelse
         </select>
         <br/>
@@ -42,7 +42,7 @@
             @endif
             >{{ $p }}</li>
           @empty
-            <option>選択してください</option>
+            <option value="">選択してください</option>
           @endforelse
         </select>
         <select name="endDate">
@@ -53,7 +53,7 @@
             @endif
             >{{ $p }}</li>
           @empty
-            <option>選択してください</option>
+            <option value="">選択してください</option>
           @endforelse
         </select>
         <input type="submit">
