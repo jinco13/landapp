@@ -34,6 +34,8 @@
           @endforelse
         </select>
         <br/>
+        <input type="text" name="district" value="{{ $district }}"/>
+        <br/>
         <select name="startDate">
           @forelse ($period as $p)
             <option value="{{ $p }}"
@@ -59,14 +61,24 @@
         <input type="submit">
       </form>
       @if (count($list) > 0)
-        <table border="1">
+        <table border="1" style="font-size: 10px;">
           @foreach($list as $land)
           <tr>
+            <td>{{ $land->prefecture }}</td>
+            <td>{{ $land->municipality }}</td>
+            <td>{{ $land->districtName }}</td>
             <td>{{ $land->period }}</td>
             <td>{{ $land->type }}</td>
+            <td>{{ $land->region }}</td>
             <td>{{ $land->buildingYear }}</td>
             <td>{{ $land->tradePrice }}</td>
             <td>{{ $land->area }}</td>
+            <td>{{ $land->totalFloorArea }}</td>
+            <td>{{ $land->structure }}</td>
+            <td>{{ $land->use }}</td>
+            <td>{{ $land->cityPlanning }}</td>
+            <td>{{ $land->floorPlan }}</td>
+            <td>{{ $land->direction}}</td>
           </tr>
           @endforeach
         </table>
