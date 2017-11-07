@@ -17,6 +17,7 @@ class AreaController extends Controller
       'selectedArea' => "",
       'selectedCity' => "",
       'period' => [],
+      'list' => [],
       'startDate' => '',
       'endDate' => ''
     ];
@@ -28,12 +29,18 @@ class AreaController extends Controller
     $api = new WebAPI();
     $area   = $request->area;
     $city   = $request->city;
-    $cities = $api->getCityCode($area);
-    $period = $api->getPeriod();
+    $cities = [];
+    $period = [];
     $start  = $request->startDate;
     $end    = $request->endDate;
     $list   = [];
-    if (isset($area) and isset($city) and isset($start) and isset($end)) {
+
+    if(!empty($area)){
+      $cities = $api->getCityCode($area);
+      $period = $api->getPeriod();
+    }
+
+    if ( !empty($area) and !empty($city) and !empty($start) and !empty($end)) {
       $list = $api->getTradeHistory($area, $city, $start, $end);
     }
     $data = [
