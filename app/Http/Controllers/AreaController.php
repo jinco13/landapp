@@ -19,7 +19,8 @@ class AreaController extends Controller
       'period' => [],
       'list' => [],
       'startDate' => '',
-      'endDate' => ''
+      'endDate' => '',
+      'district' => ''
     ];
     return view('area.show', $data);
   }
